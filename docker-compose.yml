@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  mongodb_container:
+    # for production used image version should be used instead of latest
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: username
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: agency
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+
+  agency_portal:
+    build: ./app/agency-portal/
+    ports:
+      - 4300:80
+    depends_on:
+      - agency_service
+
+  agency_service:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongodb_container
+
+volumes:
+  mongodb_data_container:

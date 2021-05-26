@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Edit Agency</h2>
+<mat-dialog-content [formGroup]="form">
+  <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" required/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Contact Person" formControlName="contactPerson" required/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Country" formControlName="country" required/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Country Code" formControlName="countryCode" required>
+        <mat-option *ngFor="let code of countryCode" [value]="code.value">
+          {{code.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="street" required formControlName="street"/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Settlement Currency" formControlName="currency" required>
+        <mat-option *ngFor="let currency of currencyCode" [value]="currency.value">{{currency.viewValue}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="id" formControlName="id" readonly="readonly" #idvalue/>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="onEdit()">
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+  <button mat-button color="primary" (click)="onCancel()">
+    <mat-icon>cancel</mat-icon>
+    Cancel
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,63 @@
+<div>
+  <app-toolbar></app-toolbar>
+  <mat-card
+    *ngFor="let agency of (agenciesData | async); let i = index"
+    class="kid"
+  >
+    <mat-card-header>
+      <mat-card-title>
+        <mat-card-subtitle>Agency Name:</mat-card-subtitle>
+        {{ agency.name }}
+      </mat-card-title>
+
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="4%" fxLayoutAlign="center">
+        <mat-card-title>
+          <mat-card-subtitle>
+            Contact Person
+          </mat-card-subtitle>
+          {{ agency.contactPerson }}
+        </mat-card-title>
+        <mat-card-title>
+          <mat-card-subtitle>
+            Country Code
+          </mat-card-subtitle>
+          {{ agency.countryCode }}</mat-card-title>
+        <mat-card-title>
+          <mat-card-subtitle>
+            Country
+          </mat-card-subtitle>
+          {{ agency.country }}</mat-card-title>
+        <mat-card-title>
+          <mat-card-subtitle>
+            City
+          </mat-card-subtitle>
+          {{ agency.city }}</mat-card-title>
+        <mat-card-title>
+          <mat-card-subtitle>
+            Currency
+          </mat-card-subtitle>
+          {{ agency.currency }}</mat-card-title>
+        <mat-card-title>
+          <mat-card-subtitle>
+            Street
+          </mat-card-subtitle>
+          {{ agency.street }}</mat-card-title>
+      </div>
+
+      <div fxFlex></div>
+      <button mat-button color="primary" (click)="openAgencyDialog(agency.id, agency)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-button (click)="deleteItem(agency.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-header>
+    <hr>
+  </mat-card>
+  <div *ngIf="(agenciesData | async)?.length == 0">
+    <mat-card>
+      No agency found
+    </mat-card>
+  </div>
+</div>
+

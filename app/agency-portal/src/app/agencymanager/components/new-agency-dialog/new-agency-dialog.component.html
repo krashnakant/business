@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>Add New Agency</h2>
+<mat-dialog-content>
+  <div class="new-agency-container">
+    <mat-form-field>
+      <input matInput placeholder="Name" [(ngModel)]="agency.name" required/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Contact Person" [(ngModel)]="agency.contactPerson" required/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Country" [(ngModel)]="agency.country" required/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="City" [(ngModel)]="agency.city" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Country Code" [(ngModel)]="agency.countryCode" required>
+        <mat-option *ngFor="let code of countryCode" [value]="code.value">
+          {{code.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="street" [(ngModel)]="agency.street" required/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Settlement Currency" [(ngModel)]="agency.currency" required>
+        <mat-option *ngFor="let currency of currencyCode" [value]="currency.value">
+          {{currency.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="onSave()">
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+  <button mat-button color="primary" (click)="onCancel()">
+    <mat-icon>cancel</mat-icon>
+    Cancel
+  </button>
+</mat-dialog-actions>
