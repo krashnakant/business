@@ -1,6 +1,6 @@
 # NgMaterial
 
-This project is updated to [Angular CLI](https://github.com/angular/angular-cli) version 8.
+This project is updated to [Angular CLI](https://github.com/angular/angular-cli) version 12.
 
 ## Development server
 
